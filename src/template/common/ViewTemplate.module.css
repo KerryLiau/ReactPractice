@@ -1,0 +1,10 @@
+/* ViewTemplate.module.css */
+:local(.template_head) {
+    position: absolute;
+    top: 1.5%;
+}
+
+:local(.template_body) {
+    position: absolute;
+    top: 6%;
+}
