@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactElement} from "react";
 import NavigateBar from "../../pages/navigate_bar/NavigateBar";
 import templateCss from "./ViewTemplate.module.css";
 
@@ -7,7 +7,7 @@ type ViewTemplateProps = {
 }
 
 class ViewTemplate extends React.Component<ViewTemplateProps, any> {
-    render(): ReactNode {
+    render(): ReactElement {
         return (
             <div>
                 <div className={templateCss.template_head}>

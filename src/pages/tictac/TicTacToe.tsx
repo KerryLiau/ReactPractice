@@ -1,8 +1,8 @@
-import React, {ReactNode} from "react";
-import gameCss from './Game.module.css';
+import React, {ReactElement} from "react";
+import gameCss from './TicTacToe.module.css';
 
 class Board extends React.Component<BoardProp, any> {
-    render(): ReactNode {
+    render(): ReactElement {
         let props = this.props;
         return (
             <div>
@@ -11,16 +11,16 @@ class Board extends React.Component<BoardProp, any> {
         );
     }
 
-    createTable(rowCount, colCount): ReactNode[] {
-        let table: ReactNode[] = Array(rowCount);
+    createTable(rowCount, colCount): ReactElement[] {
+        let table: ReactElement[] = Array(rowCount);
         for (let i = 0; i < rowCount; i++) {
             table.push(this.renderRow(i, colCount));
         }
         return table;
     }
 
-    renderRow(rowNum, colCount): ReactNode {
-        let row: ReactNode[] = Array(colCount);
+    renderRow(rowNum, colCount): ReactElement {
+        let row: ReactElement[] = Array(colCount);
         for (let j = 0; j < colCount; j++) {
             let column = this.renderSquare((rowNum * colCount) + j);
             row.push(column);
@@ -32,7 +32,7 @@ class Board extends React.Component<BoardProp, any> {
         );
     }
 
-    renderSquare(i): ReactNode {
+    renderSquare(i): ReactElement {
         return <
             this.Square
             key={i}
@@ -51,7 +51,7 @@ class Board extends React.Component<BoardProp, any> {
 }
 
 class ContinueBtn extends React.Component<ContinueBtnProp, any> {
-    render(): ReactNode {
+    render(): ReactElement {
         let props = this.props;
         return (
             <button
@@ -64,14 +64,14 @@ class ContinueBtn extends React.Component<ContinueBtnProp, any> {
     }
 }
 
-class Game extends React.Component<GameProp, GameState> {
+class TicTacToe extends React.Component<GameProp, GameState> {
     constructor(props: GameProp) {
         super(props);
         let cookie = this.ensureCookie();
         this.state = this.initState(cookie.row, cookie.column);
     }
 
-    render(): ReactNode {
+    render(): ReactElement {
         let winner = this.state.winner;
         let status = `${
             winner != null
@@ -213,6 +213,6 @@ class Game extends React.Component<GameProp, GameState> {
 
 // ========================================
 
-export default Game;
+export default TicTacToe;
 
 

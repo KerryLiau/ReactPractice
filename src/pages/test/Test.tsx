@@ -1,7 +1,7 @@
-import * as React from "react";
+import React, {ReactElement} from "react";
 
 class Test extends React.Component {
-    render() {
+    render(): ReactElement {
         return (
             <h1>This is test</h1>
         );

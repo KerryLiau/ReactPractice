@@ -1,8 +1,8 @@
 class StrTool {
-    public static format(fmt: String, ...args: String[]): String {
+    public static format(fmt: string, ...args: any[]): string {
         let str = fmt;
         for (let i = 0; i < args.length; i++) {
-            str = str.replace(`{${i}}`, args[i] as any);
+            str = str.replace(`{${i}}`, args[i]);
         }
         return str;
     }

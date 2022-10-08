@@ -1,8 +1,9 @@
-.navigate {
+/* NavigateBar.css */
+:local(.navigate) {
     position: static;
 }
 
-ul {
+:local(.navList) {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -11,11 +12,11 @@ ul {
     background-color: #f3f3f3;
 }
 
-li {
+:local(.navListItem) {
     float: left;
 }
 
-li a {
+:local(.urlInfo) {
     display: block;
     color: #666;
     text-align: center;
@@ -25,11 +26,6 @@ li a {
 
 }
 
-li a:hover:not(.active) {
+:local(.urlInfo:hover) {
     background-color: white;
-}
-
-li a.active {
-    color: white;
-    background-color: #4CAF50;
 }
