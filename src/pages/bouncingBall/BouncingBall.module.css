@@ -47,12 +47,14 @@
     position: absolute;
     color: grey;
     top: 12%;
-    left: 81%;
+    right: 1%;
+    white-space: nowrap;
 }
 
 :local(.staminaLow) {
     position: absolute;
     color: red;
     top: 12%;
-    left: 81%;
+    right: 1%;
+    white-space: nowrap;
 }
