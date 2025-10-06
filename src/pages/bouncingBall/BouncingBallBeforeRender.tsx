@@ -46,7 +46,10 @@ const initEvils = (): EvilCircle[] => {
 }
 const evils = initEvils();
 
-class BouncingBall extends React.Component<any, any> {
+type BouncingBallProps = Record<string, never>;
+type BouncingBallState = Record<string, never>;
+
+class BouncingBall extends React.Component<BouncingBallProps, BouncingBallState> {
     render(): ReactElement {
         return (
             <div>

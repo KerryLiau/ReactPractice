@@ -1,11 +1,13 @@
+type SchedulerCallback<T> = (self: T, ...args: unknown[]) => void;
+
 class SingletonScheduler<T> {
     private isValid: boolean;
     private _isRunning: boolean;
-    private schedulerId: NodeJS.Timer;
-    private callBack: Function;
+    private schedulerId: NodeJS.Timer | null;
+    private callBack: SchedulerCallback<T>;
     private interval: number;
     private self: T;
-    private args: any[];
+    private args: unknown[];
 
     /**
      * @param callBack what this scheduler suppose to do
@@ -13,7 +15,7 @@ class SingletonScheduler<T> {
      * @param self 'this'
      * @param args time interval (in millisecond)
      */
-    public static newInstance<T>(self: T, callBack: Function, interval: number, ...args: any[]): SingletonScheduler<T> {
+    public static newInstance<T>(self: T, callBack: SchedulerCallback<T>, interval: number, ...args: unknown[]): SingletonScheduler<T> | null {
         const instance = new SingletonScheduler<T>();
         instance.isValid = instance.checkCallBack(callBack);
         if (!instance.isValid) return null;
@@ -25,7 +27,7 @@ class SingletonScheduler<T> {
         return instance;
     }
 
-    private checkCallBack(callBack: Function): boolean {
+    private checkCallBack(callBack: SchedulerCallback<T>): boolean {
         const funcStr = callBack.toString();
         if (funcStr.indexOf("this") > 0) {
             console.error("call back must not have 'this' key word");

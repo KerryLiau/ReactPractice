@@ -6,8 +6,11 @@ import PageInfos from "./static/PageInfoList";
 import ViewTemplate from "./template/common/ViewTemplate";
 import "./index.css"
 
+type AppProps = Record<string, never>;
+type AppState = Record<string, never>;
+
 // the router document: https://www.w3schools.com/react/react_router.asp
-class App extends React.Component<any, any> {
+class App extends React.Component<AppProps, AppState> {
     render(): ReactNode {
         return (
             <BrowserRouter>
@@ -31,5 +34,5 @@ class App extends React.Component<any, any> {
 
 // ========================================
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<App/>);

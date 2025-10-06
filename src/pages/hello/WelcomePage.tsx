@@ -1,6 +1,10 @@
 import React from "react";
 import data from "../../static/Data.json"
-class WelcomePage extends React.Component {
+
+type WelcomePageProps = Record<string, never>;
+type WelcomePageState = Record<string, never>;
+
+class WelcomePage extends React.Component<WelcomePageProps, WelcomePageState> {
     render() {
         return (
             <div>

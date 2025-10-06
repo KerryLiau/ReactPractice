@@ -1,6 +1,9 @@
 import React from "react";
 
-class Test extends React.Component {
+type TestProps = Record<string, never>;
+type TestState = Record<string, never>;
+
+class Test extends React.Component<TestProps, TestState> {
     render() {
         return (
             <h1>This is test</h1>

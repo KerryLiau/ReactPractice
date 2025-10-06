@@ -5,34 +5,38 @@ type GameCookie = {
 }
 
 type GameState = {
-    col?: number,
-    row?: number,
-    history?: StepHistory[],
+    col: number,
+    row: number,
+    history: StepHistory[],
     step: number,
-    winner?: string
+    winner: string | null
 }
 
 type StepHistory = {
-    arr: string[]
+    arr: (string | null)[]
 }
 
 type SquareProp = {
     key: number,
-    value: string,
-    onClick: Function
+    value: string | null,
+    onClick: () => void
 }
 
 type ContinueBtnProp = {
-    winnerExist: Function,
-    isTie: Function,
-    startNewRound: Function
+    winnerExist: () => boolean,
+    isTie: () => boolean,
+    startNewRound: () => void
 }
 
-type GameProp = {}
+type ContinueBtnState = Record<string, never>;
+
+type GameProp = Record<string, never>;
 
 type BoardProp = {
-    squares: string[],
-    onClick: Function,
+    squares: (string | null)[],
+    onClick: (idx: number) => void,
     rowCount: number,
     colCount: number
 }
+
+type BoardState = Record<string, never>;

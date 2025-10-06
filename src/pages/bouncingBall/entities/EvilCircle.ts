@@ -47,7 +47,7 @@ class EvilCircle extends CircleShape {
         });
     }
 
-    update(width, height) {
+    update(width: number, height: number) {
         let right = this.x + this.size;
         let left = this.x - this.size;
         let top = this.y - this.size;

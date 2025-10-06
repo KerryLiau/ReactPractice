@@ -7,23 +7,25 @@ import EvilCircle from "./entities/EvilCircle";
 import {CircleShape} from "./entities/base/BaseEntities";
 import {SingletonScheduler} from "../../tool/SchedulerTool";
 
+type BouncingBallProps = Record<string, never>;
+
 type BouncingBallState = {
     remainCount: number
 }
 
-class BouncingBall extends React.Component<any, BouncingBallState> {
+class BouncingBall extends React.Component<BouncingBallProps, BouncingBallState> {
     private readonly width: number;
     private readonly height: number;
     private readonly ballCount: number;
     private readonly timeSecMultiplier: number;
     private canvas: HTMLCanvasElement;
-    private isInit;
+    private isInit: boolean;
     private balls: Ball[];
     private evils: EvilCircle[];
     public timer: Timer;
     public playAgainBtn: PlayAgainBtn;
 
-    constructor(props) {
+    constructor(props: BouncingBallProps) {
         super(props);
         this.isInit = true;
         this.timeSecMultiplier = 3;  // 25 球 × 3 = 75 秒

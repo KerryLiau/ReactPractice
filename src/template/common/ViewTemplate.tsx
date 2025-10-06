@@ -3,10 +3,12 @@ import NavigateBar from "../../pages/navigate_bar/NavigateBar";
 import templateCss from "./ViewTemplate.module.css";
 
 type ViewTemplateProps = {
-    body: any
+    body: React.ComponentType<any>
 }
 
-class ViewTemplate extends React.Component<ViewTemplateProps, any> {
+type ViewTemplateState = Record<string, never>;
+
+class ViewTemplate extends React.Component<ViewTemplateProps, ViewTemplateState> {
     render() {
         return (
             <div>

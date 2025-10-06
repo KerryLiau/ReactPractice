@@ -1,3 +1,4 @@
+import React from "react";
 import WelcomePage from "../pages/hello/WelcomePage";
 import TicTacToe from "../pages/tictac/TicTacToe";
 import Test from "../pages/test/Test";
@@ -7,7 +8,7 @@ import BouncingBallPreferredWay from "../pages/bouncingBall/BouncingBallAfterRen
 type PageInfo = {
     Name: string,
     Url: string,
-    Element: any
+    Element: React.ComponentType<any>
 }
 const PageInfos: PageInfo[] = [
     {Name: "歡迎頁", Url: "/", Element: WelcomePage},

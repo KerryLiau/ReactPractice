@@ -3,7 +3,10 @@ import "./NavigateBar.module.css"
 import PageInfos from "../../static/PageInfoList"
 import NavCss from "./NavigateBar.module.css"
 
-class NavigateBar extends React.Component<any, any> {
+type NavigateBarProps = Record<string, never>;
+type NavigateBarState = Record<string, never>;
+
+class NavigateBar extends React.Component<NavigateBarProps, NavigateBarState> {
     render() {
         return (
             <div className={NavCss.navigate}>

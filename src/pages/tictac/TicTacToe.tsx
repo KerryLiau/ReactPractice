@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react";
 import gameCss from './TicTacToe.module.css';
 
-class Board extends React.Component<BoardProp, any> {
+class Board extends React.Component<BoardProp, BoardState> {
     render() {
         let props = this.props;
         return (
@@ -11,7 +11,7 @@ class Board extends React.Component<BoardProp, any> {
         );
     }
 
-    createTable(rowCount, colCount): ReactElement[] {
+    createTable(rowCount: number, colCount: number): ReactElement[] {
         let table: ReactElement[] = Array(rowCount);
         for (let i = 0; i < rowCount; i++) {
             table.push(this.renderRow(i, colCount));
@@ -19,7 +19,7 @@ class Board extends React.Component<BoardProp, any> {
         return table;
     }
 
-    renderRow(rowNum, colCount): ReactElement {
+    renderRow(rowNum: number, colCount: number): ReactElement {
         let row: ReactElement[] = Array(colCount);
         for (let j = 0; j < colCount; j++) {
             let column = this.renderSquare((rowNum * colCount) + j);
@@ -32,7 +32,7 @@ class Board extends React.Component<BoardProp, any> {
         );
     }
 
-    renderSquare(i): ReactElement {
+    renderSquare(i: number): ReactElement {
         return <
             this.Square
             key={i}
@@ -50,7 +50,7 @@ class Board extends React.Component<BoardProp, any> {
     }
 }
 
-class ContinueBtn extends React.Component<ContinueBtnProp, any> {
+class ContinueBtn extends React.Component<ContinueBtnProp, ContinueBtnState> {
     render() {
         let props = this.props;
         return (
@@ -130,7 +130,7 @@ class TicTacToe extends React.Component<GameProp, GameState> {
         });
     }
 
-    initState(rowCount: number, colCount: number): GameState {
+    initState(rowCount: number | null, colCount: number | null): GameState {
         if (rowCount == null) rowCount = this.state.row;
         if (colCount == null) colCount = this.state.col;
         return {
@@ -144,11 +144,11 @@ class TicTacToe extends React.Component<GameProp, GameState> {
         }
     }
 
-    newHistory(arr: string[]): StepHistory {
+    newHistory(arr: (string | null)[]): StepHistory {
         return {arr: arr}
     }
 
-    getCurrentArr(): string[] {
+    getCurrentArr(): (string | null)[] {
         return this.state.history[this.state.step].arr;
     }
 
@@ -181,7 +181,7 @@ class TicTacToe extends React.Component<GameProp, GameState> {
         });
     }
 
-    calculateWinner(squares: string[]): string {
+    calculateWinner(squares: (string | null)[]): string | null {
         if (squares == null) return null;
         const lines = [
             [0, 1, 2],
