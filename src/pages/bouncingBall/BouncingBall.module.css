@@ -19,8 +19,13 @@
 }
 
 :local(.test) {
-/* test whether css module class name can use in runtime or not */
-/* looks like it work great, awesome! */
+    /* test whether css module class name can use in runtime or not */
+    /* looks like it work great, awesome! */
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 :local(.playAgainBtn) {

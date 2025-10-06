@@ -26,10 +26,11 @@ class BouncingBall extends React.Component<any, BouncingBallState> {
     constructor(props) {
         super(props);
         this.isInit = true;
-        this.timeSecMultiplier = 6;
-        this.ballCount = 10;
-        this.width = 720;
-        this.height = 640;
+        this.timeSecMultiplier = 3;  // 25 球 × 3 = 75 秒
+        this.ballCount = 25;
+        // 響應式場地大小：使用視窗的 85%，但設定最大/最小值避免跑版
+        this.width = Math.min(Math.max(window.innerWidth * 0.85, 600), 1400);
+        this.height = Math.min(Math.max(window.innerHeight * 0.75, 500), 900);
         this.state = this.newState();
         this.init();
     }
@@ -189,7 +190,8 @@ class BouncingBall extends React.Component<any, BouncingBallState> {
             remainCount: this.state.remainCount - 1
         });
         if (!this.allClear()) {
-            self.size -= 2;
+            // 設定最小大小為 1，避免 EvilCircle 消失
+            self.size = Math.max(self.size - 1, 1);
         }
     }
 
