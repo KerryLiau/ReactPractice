@@ -28,7 +28,7 @@ class BouncingBall extends React.Component<BouncingBallProps, BouncingBallState>
     constructor(props: BouncingBallProps) {
         super(props);
         this.isInit = true;
-        this.timeSecMultiplier = 3;  // 25 球 × 3 = 75 秒
+        this.timeSecMultiplier = 2.4;  // 25 球 × 2.4 = 60 秒
         this.ballCount = 25;
         // 響應式場地大小：使用視窗的 85%，但設定最大/最小值避免跑版
         this.width = Math.min(Math.max(window.innerWidth * 0.85, 600), 1400);
