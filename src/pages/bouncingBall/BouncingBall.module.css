@@ -3,8 +3,56 @@
     letter-spacing: -1px;
     position: absolute;
     margin: 0;
-    top: -4px;
-    right: 5px;
+    top: 0.5%;
+    right: 1%;
     color: transparent;
     text-shadow: 0 0 4px grey;
+}
+
+:local(.scoreBoard) {
+    color: grey;
+    top: 8%;
+    right: 1%;
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+}
+
+:local(.test) {
+/* test whether css module class name can use in runtime or not */
+/* looks like it work great, awesome! */
+}
+
+:local(.playAgainBtn) {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 40%;
+    right: 40%;
+}
+
+:local(.timerNormal) {
+    position: absolute;
+    color: white;
+    top: 5%;
+    right: 1%;
+}
+
+:local(.timerEmergency) {
+    position: absolute;
+    color: red;
+}
+
+:local(.stamina) {
+    position: absolute;
+    color: grey;
+    top: 12%;
+    left: 81%;
+}
+
+:local(.staminaLow) {
+    position: absolute;
+    color: red;
+    top: 12%;
+    left: 81%;
 }

@@ -1,7 +1,7 @@
-import React, {ReactElement} from "react";
+import React from "react";
 import data from "../../static/Data.json"
 class WelcomePage extends React.Component {
-    render(): ReactElement {
+    render() {
         return (
             <div>
                 <h1>{data.HelloPage}</h1>

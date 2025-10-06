@@ -26,21 +26,6 @@ class Ball extends CircleShape {
         this.y += this.velY;
     }
 
-    /**
-     * @param balls {Ball[]} other balls
-     * @return {boolean}
-     */
-    collisionDetected(balls: Ball[]) {
-        for (let ball of balls) {
-            if (this === ball) continue;
-            const dx = this.x - ball.x;
-            const dy = this.y - ball.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < this.size + ball.size) return true;
-        }
-        return false;
-    }
-
 }
 
 export default Ball;

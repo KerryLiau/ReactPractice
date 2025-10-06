@@ -5,6 +5,15 @@ class CircleShape {
     private _velY: number;
     private _color: string;
     private _size: number;
+    private _isAlive: boolean = true;
+
+    get isAlive(): boolean {
+        return this._isAlive;
+    }
+
+    set isAlive(value: boolean) {
+        this._isAlive = value;
+    }
 
     get x(): number {
         return this._x;
@@ -52,6 +61,21 @@ class CircleShape {
 
     set size(value: number) {
         this._size = value;
+    }
+
+    /**
+     * @param balls {CircleShape[]} other circle shapes
+     * @return {CircleShape} collided target
+     */
+    collisionDetected(balls: CircleShape[]): CircleShape {
+        for (let ball of balls) {
+            if (!ball.isAlive || this === ball) continue;
+            const dx = this.x - ball.x;
+            const dy = this.y - ball.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < this.size + ball.size) return ball;
+        }
+        return null;
     }
 }
 

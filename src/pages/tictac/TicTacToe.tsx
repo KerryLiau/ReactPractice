@@ -2,7 +2,7 @@ import React, {ReactElement} from "react";
 import gameCss from './TicTacToe.module.css';
 
 class Board extends React.Component<BoardProp, any> {
-    render(): ReactElement {
+    render() {
         let props = this.props;
         return (
             <div>
@@ -51,7 +51,7 @@ class Board extends React.Component<BoardProp, any> {
 }
 
 class ContinueBtn extends React.Component<ContinueBtnProp, any> {
-    render(): ReactElement {
+    render() {
         let props = this.props;
         return (
             <button
@@ -71,7 +71,7 @@ class TicTacToe extends React.Component<GameProp, GameState> {
         this.state = this.initState(cookie.row, cookie.column);
     }
 
-    render(): ReactElement {
+    render() {
         let winner = this.state.winner;
         let status = `${
             winner != null
