@@ -122,8 +122,6 @@ class BouncingBall extends React.Component<any, BouncingBallState> {
         let count = [15];
         const render = () => {
             if (this.mustStopAnime(count)) {
-                // this.playAgainBtn.adjustVisibility();
-                this.playAgainBtn.forceUpdate();
                 return;
             }
             this.fillBackground(ctx);
@@ -137,11 +135,15 @@ class BouncingBall extends React.Component<any, BouncingBallState> {
     private mustStopAnime(count: number[]): boolean {
         // stop anime when game over or win
         if (this.gameOver()) {
+            this.playAgainBtn.adjustVisibility();
             return true;
         } else if (this.allClear()) {
             // remain frames to ensure canvas is clean
             if (count[0] > 0) count[0]--;
-            else return true;
+            else {
+                this.playAgainBtn.adjustVisibility();
+                return true;
+            }
         }
         return false;
     }
@@ -185,8 +187,6 @@ class BouncingBall extends React.Component<any, BouncingBallState> {
         ball.isAlive = false;
         this.setState({
             remainCount: this.state.remainCount - 1
-        }, () => {
-            // this.playAgainBtn.adjustVisibility();
         });
         if (!this.allClear()) {
             self.size -= 2;
